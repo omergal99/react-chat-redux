@@ -1,8 +1,8 @@
 export default (state, action) => {
     var copy;
-    if(!state){
+    if (!state) {
         copy = [{ txt: 'hello', from: 'Omer' }, { txt: 'hii', from: 'Amit' }]
-    }else{
+    } else {
         copy = [...state];
     }
     console.log('reducer: CHAT state: ', state, ", action.type: ", action)
@@ -10,8 +10,8 @@ export default (state, action) => {
     var from2 = (action.payload) ? action.payload.from : 'from';
 
     switch (action.type) {
-        case 'pushToMsgs': 
-            return [...copy,{txt: txt2, from: from2}];
+        case 'pushToMsgs':
+            return [...copy, { txt: txt2, from: from2 }];
         default:
             return copy;
     }

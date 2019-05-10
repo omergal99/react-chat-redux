@@ -3,7 +3,7 @@ import SocketService from '../../services/SocketService';
 
 function sendMsg(txt) {
     SocketService.send(txt)
-    return {type: '', payload: { txt }}
+    return { type: '', payload: { txt } }
 }
 // function sendUserTyping() {
 //     SocketService.typing()

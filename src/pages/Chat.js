@@ -40,7 +40,7 @@ class Chat extends Component {
     // var userTyping = this.props.store.chatStore.getNameType;
     var massages = this.props.msgs;
     const chat = massages.map((msg, idx) => (
-      <li className={ userName === msg.from ? 'own' : 'else' } key={idx}>
+      <li className={userName === msg.from ? 'own' : 'else'} key={idx}>
         <label className="user">{msg.from}:&nbsp;</label>
         <label>{msg.txt}</label>
       </li>
