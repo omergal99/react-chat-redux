@@ -1,4 +1,4 @@
-﻿## Explanation
+﻿## Explanation - store with Redux
 
 ### USE Node version v10.15.3
 
