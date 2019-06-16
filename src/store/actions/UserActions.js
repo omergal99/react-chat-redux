@@ -1,26 +1,19 @@
 import UserService from '../../services/UserService';
 
+// function loadUser() {
+//   return (dispatch) => {
+//     UserService.getUser()
+//       .then((user) => dispatch({ type: 'setUser', payload: { user } }))
+//   }
+// }
 function loadUser() {
-    return (dispatch) => {
-        UserService.getUser()
-            .then((user) => {
-                if (user) {
-                    dispatch({
-                        type: 'setUser',
-                        payload: { user }
-                    })
-                } else {
-                    dispatch({ type: '' })
-                }
-            })
-    }
+  return async (dispatch) => {
+    const user = await UserService.getUser();
+    dispatch({ type: 'setUser', payload: { user } })
+  }
 }
 
-// function getUser() {
-//     return {type: ''};
-// }
 
 export default {
-    loadUser,
-    // getUser
+  loadUser,
 }

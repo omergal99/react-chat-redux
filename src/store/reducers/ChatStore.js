@@ -1,18 +1,17 @@
-export default (state, action) => {
-    var copy;
-    if (!state) {
-        copy = [{ txt: 'hello', from: 'Omer' }, { txt: 'hii', from: 'Amit' }]
-    } else {
-        copy = [...state];
-    }
-    console.log('reducer: CHAT state: ', state, ", action.type: ", action)
-    var txt2 = (action.payload) ? action.payload.txt : 'text';
-    var from2 = (action.payload) ? action.payload.from : 'from';
+const initialState = {
+    msgs: [{ txt: 'hello', from: 'Omer' }, { txt: 'hii', from: 'Amit' }],
+    userTyping: ''
+}
 
+export default (state = initialState, action) => {
+    // console.log('reducer: CHAT state: ', state, ", action.type: ", action)
     switch (action.type) {
         case 'pushToMsgs':
-            return [...copy, { txt: txt2, from: from2 }];
+            // return { msgs: [...state.msgs, action.payload], userTyping: `${state.userTyping}` };
+            return Object.assign(state, { msgs: [...state.msgs, action.payload] });
+        case 'changeUserTyping':
+            return { msgs: state.msgs, userTyping: action.payload.user };
         default:
-            return copy;
+            return state;
     }
 }

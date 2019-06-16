@@ -16,15 +16,15 @@ class Chat extends Component {
 
   updateMsg = (ev) => {
     this.setState({ text: ev.target.value, typeTime: Date.now() });
-    // if (Date.now() - this.state.typeTime > 250) {
-    //   this.props.store.chatStore.sendUserTyping();
-    // }
+    if (Date.now() - this.state.typeTime > 250) {
+      actions.sendUserTyping();
+    }
 
-    // setTimeout(() => {
-    //   if (Date.now() - this.state.typeTime > 1000 ) {
-    //     this.props.store.chatStore.sendUserStop()
-    //   }
-    // }, 1200)
+    setTimeout(() => {
+      if (Date.now() - this.state.typeTime > 1000 ) {
+        actions.sendUserStop();
+      }
+    }, 1200)
   }
 
   imSendMsg = (ev) => {
@@ -37,7 +37,7 @@ class Chat extends Component {
 
   render() {
     var userName = this.props.currUser;
-    // var userTyping = this.props.store.chatStore.getNameType;
+    var userTyping = this.props.userTyping;
     var massages = this.props.msgs;
     const chat = massages.map((msg, idx) => (
       <li className={userName === msg.from ? 'own' : 'else'} key={idx}>
@@ -49,14 +49,13 @@ class Chat extends Component {
       <section className="homePage">
 
         <h1>{userName}, Welcome to Chat!</h1>
-        {/* <h1>Welcome to Chat!</h1> */}
 
-        {/* {userTyping &&
+        {userTyping &&
           <div className="type-area">{userTyping} typing...</div>
         }
         {!userTyping &&
           <div className="type-area"></div>
-        } */}
+        }
 
         <form className="msg-form">
           <input autoFocus value={this.state.text} onChange={this.updateMsg} type="text" />
@@ -73,7 +72,8 @@ class Chat extends Component {
 function mapStateToProps(state) {
   console.log(state)
   return {
-    msgs: state.chatStore,
+    msgs: state.chatStore.msgs,
+    userTyping: state.chatStore.userTyping,
     currUser: state.userStore.currUser
   }
 }
