@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from 'react-redux'
-import store from './store/AppStore'
+import { Provider } from 'react-redux';
+import store from './store/AppStore';
 
 import './assets/css/index.scss';
 import App from './App';

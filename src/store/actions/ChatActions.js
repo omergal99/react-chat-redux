@@ -2,14 +2,16 @@ import SocketService from '../../services/SocketService';
 
 
 function sendMsg(txt) {
-    SocketService.send(txt)
-    return { type: '', payload: { } }
+    SocketService.send(txt);
+    // return { type: '', payload: { } };
 }
 function sendUserTyping() {
-    SocketService.typing()
+    SocketService.typing();
+    // return { type: '', payload: { } };
 }
 function sendUserStop() {
-    SocketService.stopTyping()
+    SocketService.stopTyping();
+    // return { type: '', payload: { } };
 }
 
 

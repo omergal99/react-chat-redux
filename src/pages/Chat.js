@@ -11,6 +11,7 @@ class Chat extends Component {
 
   componentDidMount() {
     console.log(this.props)
+    // actions.loadUser();
     this.props.loadUser();
   }
 
@@ -18,11 +19,13 @@ class Chat extends Component {
     this.setState({ text: ev.target.value, typeTime: Date.now() });
     if (Date.now() - this.state.typeTime > 250) {
       actions.sendUserTyping();
+      // this.props.sendUserTyping();
     }
 
     setTimeout(() => {
-      if (Date.now() - this.state.typeTime > 1000 ) {
+      if (Date.now() - this.state.typeTime > 1000) {
         actions.sendUserStop();
+        // this.props.sendUserStop();
       }
     }, 1200)
   }
@@ -30,7 +33,8 @@ class Chat extends Component {
   imSendMsg = (ev) => {
     ev.preventDefault();
     if (this.state.text) {
-      this.props.sendMsg(this.state.text);
+      actions.sendMsg(this.state.text);
+      // this.props.sendMsg(this.state.text);
       this.setState({ text: '' });
     }
   }

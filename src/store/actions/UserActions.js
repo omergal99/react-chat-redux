@@ -13,7 +13,6 @@ function loadUser() {
   }
 }
 
-
 export default {
   loadUser,
 }

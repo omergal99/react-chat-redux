@@ -1,4 +1,8 @@
-export default (state = { currUser: 'user2' }, action) => {
+const initialState = {
+    currUser: 'user2'
+}
+
+export default (state = initialState, action) => {
     // console.log('reducer: USER state: ', state, ", action.type: ", action)
 
     switch (action.type) {
