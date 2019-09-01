@@ -1,4 +1,10 @@
 ﻿## Explanation - store with Redux
+ 
+To heroku: https://little-chat.herokuapp.com
+
+To backend: https://github.com/omergal99/little-chat-backend/tree/master
+
+To MobX: https://github.com/omergal99/react-chat
 
 ### USE Node version v10.15.3
 
